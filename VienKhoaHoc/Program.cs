@@ -108,7 +108,7 @@ namespace VienKhoaHoc
                     break;
             }
 
-            Console.WriteLine("See you again!\n");
+            Console.WriteLine("See you again!\n"); // Câu này là kết thúc chương trình, thay bằng câu nào đó khác.
         }
 
         /// <summary>
