@@ -1,4 +1,5 @@
-# VienKhoaHoc
-School project.
-Console Application.
-Description: Quản lý nhân sự viện khoa học.
+# School Projects.
+
+Console Application. <br />
+Danh sách projects: <br />
+  VienKhoaHoc: Chương trình quản lý viện khoa học.
