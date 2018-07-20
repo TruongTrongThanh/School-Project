@@ -2,4 +2,4 @@
 
 Console Application. <br />
 Danh sách projects: <br />
-  VienKhoaHoc: Chương trình quản lý viện khoa học.
+  VienKhoaHoc: Chương trình quản lý nhân sự viện khoa học.
