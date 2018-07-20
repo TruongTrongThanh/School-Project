@@ -8,6 +8,13 @@ namespace VienKhoaHoc
 
         public NhanVien() { }
 
+        /// <summary>
+        /// Hàm này ko cần chép.
+        /// </summary>
+        /// <param name="hoTen"></param>
+        /// <param name="namSinh"></param>
+        /// <param name="bangCap"></param>
+        /// <param name="luongTrongThang"></param>
         public NhanVien(string hoTen, string namSinh, string bangCap, int luongTrongThang)
         {
             HoTen = hoTen;

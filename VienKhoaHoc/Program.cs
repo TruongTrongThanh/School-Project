@@ -15,7 +15,7 @@ namespace VienKhoaHoc
             Console.WriteLine("1. Nhap thong tin nhan su");
             Console.WriteLine("2. In danh sach nhan vien");
             Console.WriteLine("3. Tong luong da chi tra cho nhan su");
-            Console.WriteLine("4. Auto generate");
+            //Console.WriteLine("4. Auto generate");
             Console.WriteLine("0. Thoat\n");
 
             Console.Write("Choice: ");
@@ -100,10 +100,10 @@ namespace VienKhoaHoc
 
                     Console.Clear();
                     goto Phase1;
-                case 4:
-                    AutoGenerate();
-                    Console.Clear();
-                    goto Phase1;
+                //case 4:
+                //    AutoGenerate();
+                //    Console.Clear();
+                //    goto Phase1;
                 default:
                     break;
             }

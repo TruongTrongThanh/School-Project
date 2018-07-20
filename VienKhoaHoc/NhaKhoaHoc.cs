@@ -10,6 +10,16 @@ namespace VienKhoaHoc
 
         public int SoBaiBao { get; set; }
 
+        /// <summary>
+        /// hàm này ko cần chép.
+        /// </summary>
+        /// <param name="hoTen"></param>
+        /// <param name="namSinh"></param>
+        /// <param name="bangCap"></param>
+        /// <param name="chucVu"></param>
+        /// <param name="soBaiBao"></param>
+        /// <param name="soNgayCong"></param>
+        /// <param name="bacLuong"></param>
         public NhaKhoaHoc(string hoTen, string namSinh, string bangCap, string chucVu, int soBaiBao, int soNgayCong, double bacLuong)
         {
             HoTen = hoTen;

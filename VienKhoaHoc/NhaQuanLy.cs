@@ -10,6 +10,15 @@ namespace VienKhoaHoc
 
         public NhaQuanLy() { }
 
+        /// <summary>
+        /// Hàm này ko cần chép.
+        /// </summary>
+        /// <param name="hoTen"></param>
+        /// <param name="namSinh"></param>
+        /// <param name="bangCap"></param>
+        /// <param name="chucVu"></param>
+        /// <param name="soNgayCong"></param>
+        /// <param name="bacLuong"></param>
         public NhaQuanLy(string hoTen, string namSinh, string bangCap, string chucVu, int soNgayCong, double bacLuong)
         {
             HoTen = hoTen;
