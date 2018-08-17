@@ -128,7 +128,10 @@
             "100",
             "200",
             "300",
-            "400"});
+            "400",
+            "500",
+            "600",
+            "700"});
             this.WagerComboBox.Location = new System.Drawing.Point(425, 357);
             this.WagerComboBox.Name = "WagerComboBox";
             this.WagerComboBox.Size = new System.Drawing.Size(121, 24);

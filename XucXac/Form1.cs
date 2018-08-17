@@ -12,7 +12,9 @@ namespace XucXac
     public partial class Form1 : Form
     {
         int currentMoney = 0;
+        string path = Application.StartupPath;
         Random r = new Random();
+
         public Form1()
         {
             InitializeComponent();
@@ -32,9 +34,10 @@ namespace XucXac
             int n1 = r.Next(1, 7);
             int n2 = r.Next(1, 7);
             int n3 = r.Next(1, 7);
-            XucXac1.Image = Properties.Resources.ResourceManager.GetObject("XX0" + n1) as Image;
-            XucXac2.Image = Properties.Resources.ResourceManager.GetObject("XX0" + n2) as Image;
-            XucXac3.Image = Properties.Resources.ResourceManager.GetObject("XX0" + n3) as Image;
+      
+            XucXac1.Image = Image.FromFile(path + @"\XX0" + n1 + ".png");
+            XucXac2.Image = Image.FromFile(path + @"\XX0" + n2 + ".png"); 
+            XucXac3.Image = Image.FromFile(path + @"\XX0" + n3 + ".png"); 
 
             int total = n1 + n2 + n3 + 3;
 
@@ -67,9 +70,9 @@ namespace XucXac
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            XucXac1.Image = Properties.Resources.ResourceManager.GetObject("XX01") as Image;
-            XucXac2.Image = Properties.Resources.ResourceManager.GetObject("XX01") as Image;
-            XucXac3.Image = Properties.Resources.ResourceManager.GetObject("XX01") as Image;
+            XucXac1.Image = Image.FromFile(path + @"\XX01.png");
+            XucXac2.Image = Image.FromFile(path + @"\XX01.png");
+            XucXac3.Image = Image.FromFile(path + @"\XX01.png");
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
