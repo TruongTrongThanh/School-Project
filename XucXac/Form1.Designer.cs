@@ -37,6 +37,10 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.CountBox = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.WagerComboBox = new System.Windows.Forms.ComboBox();
+            this.MoneyBox = new System.Windows.Forms.Label();
+            this.BetRadioButton3_10 = new System.Windows.Forms.RadioButton();
+            this.BetRadioButton11_18 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.XucXac1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.XucXac2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.XucXac3)).BeginInit();
@@ -83,7 +87,7 @@
             // 
             // RollButton
             // 
-            this.RollButton.Location = new System.Drawing.Point(129, 355);
+            this.RollButton.Location = new System.Drawing.Point(129, 439);
             this.RollButton.Name = "RollButton";
             this.RollButton.Size = new System.Drawing.Size(129, 49);
             this.RollButton.TabIndex = 4;
@@ -93,18 +97,19 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(377, 355);
+            this.CloseButton.Location = new System.Drawing.Point(377, 439);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(129, 49);
             this.CloseButton.TabIndex = 5;
             this.CloseButton.Text = "Đóng";
             this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // CountBox
             // 
             this.CountBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.CountBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CountBox.Location = new System.Drawing.Point(270, 275);
+            this.CountBox.Location = new System.Drawing.Point(193, 275);
             this.CountBox.Name = "CountBox";
             this.CountBox.Size = new System.Drawing.Size(93, 51);
             this.CountBox.TabIndex = 6;
@@ -116,11 +121,63 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // WagerComboBox
+            // 
+            this.WagerComboBox.FormattingEnabled = true;
+            this.WagerComboBox.Items.AddRange(new object[] {
+            "100",
+            "200",
+            "300",
+            "400"});
+            this.WagerComboBox.Location = new System.Drawing.Point(425, 357);
+            this.WagerComboBox.Name = "WagerComboBox";
+            this.WagerComboBox.Size = new System.Drawing.Size(121, 24);
+            this.WagerComboBox.TabIndex = 7;
+            this.WagerComboBox.Text = "Tiền đặt cược";
+            // 
+            // MoneyBox
+            // 
+            this.MoneyBox.BackColor = System.Drawing.SystemColors.Highlight;
+            this.MoneyBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MoneyBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MoneyBox.Location = new System.Drawing.Point(372, 275);
+            this.MoneyBox.Name = "MoneyBox";
+            this.MoneyBox.Size = new System.Drawing.Size(93, 51);
+            this.MoneyBox.TabIndex = 10;
+            this.MoneyBox.Text = "0";
+            this.MoneyBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BetRadioButton3_10
+            // 
+            this.BetRadioButton3_10.AutoSize = true;
+            this.BetRadioButton3_10.Location = new System.Drawing.Point(117, 357);
+            this.BetRadioButton3_10.Name = "BetRadioButton3_10";
+            this.BetRadioButton3_10.Size = new System.Drawing.Size(58, 21);
+            this.BetRadioButton3_10.TabIndex = 11;
+            this.BetRadioButton3_10.TabStop = true;
+            this.BetRadioButton3_10.Text = "3-10";
+            this.BetRadioButton3_10.UseVisualStyleBackColor = true;
+            // 
+            // BetRadioButton11_18
+            // 
+            this.BetRadioButton11_18.AutoSize = true;
+            this.BetRadioButton11_18.Location = new System.Drawing.Point(117, 384);
+            this.BetRadioButton11_18.Name = "BetRadioButton11_18";
+            this.BetRadioButton11_18.Size = new System.Drawing.Size(66, 21);
+            this.BetRadioButton11_18.TabIndex = 12;
+            this.BetRadioButton11_18.TabStop = true;
+            this.BetRadioButton11_18.Text = "11-18";
+            this.BetRadioButton11_18.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 452);
+            this.ClientSize = new System.Drawing.Size(667, 552);
+            this.Controls.Add(this.BetRadioButton11_18);
+            this.Controls.Add(this.BetRadioButton3_10);
+            this.Controls.Add(this.MoneyBox);
+            this.Controls.Add(this.WagerComboBox);
             this.Controls.Add(this.CountBox);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.RollButton);
@@ -129,6 +186,7 @@
             this.Controls.Add(this.XucXac1);
             this.Controls.Add(this.Title);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -136,6 +194,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.XucXac2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.XucXac3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -149,6 +208,10 @@
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Label CountBox;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ComboBox WagerComboBox;
+        private System.Windows.Forms.Label MoneyBox;
+        private System.Windows.Forms.RadioButton BetRadioButton3_10;
+        private System.Windows.Forms.RadioButton BetRadioButton11_18;
     }
 }
 

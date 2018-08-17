@@ -11,19 +11,11 @@ namespace XucXac
 {
     public partial class Form1 : Form
     {
-        List<Image> num = new List<Image>();
-        int dx = 5;
+        int currentMoney = 0;
         Random r = new Random();
         public Form1()
         {
             InitializeComponent();
-
-            num.Add(Properties.Resources.XX01);
-            num.Add(Properties.Resources.XX02);
-            num.Add(Properties.Resources.XX03);
-            num.Add(Properties.Resources.XX04);
-            num.Add(Properties.Resources.XX05);
-            num.Add(Properties.Resources.XX06);
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -32,29 +24,63 @@ namespace XucXac
 
         private void RollButton_Click(object sender, EventArgs e)
         {
-            int n1 = r.Next(0, 6);
-            int n2 = r.Next(0, 6);
-            int n3 = r.Next(0, 6);
-            XucXac1.Image = num[n1];
-            XucXac2.Image = num[n2];
-            XucXac3.Image = num[n3];
+            if (WagerComboBox.SelectedItem == null || (BetRadioButton11_18.Checked == false && BetRadioButton3_10.Checked == false))
+            { 
+                MessageBox.Show("Bạn chưa đặt cược hoặc chọn số muốn đặt cược!");
+                return;
+            }
+            int n1 = r.Next(1, 7);
+            int n2 = r.Next(1, 7);
+            int n3 = r.Next(1, 7);
+            XucXac1.Image = Properties.Resources.ResourceManager.GetObject("XX0" + n1) as Image;
+            XucXac2.Image = Properties.Resources.ResourceManager.GetObject("XX0" + n2) as Image;
+            XucXac3.Image = Properties.Resources.ResourceManager.GetObject("XX0" + n3) as Image;
 
             int total = n1 + n2 + n3 + 3;
 
+            if (BetRadioButton3_10.Checked == true)
+            {
+                if (total <= 10)
+                {
+                    currentMoney += Int32.Parse(WagerComboBox.SelectedItem.ToString());
+                } 
+                else
+                {
+                    currentMoney -= Int32.Parse(WagerComboBox.SelectedItem.ToString());
+                }
+            }
+            else
+            {
+                if (total > 10 && total <= 18)
+                {
+                    currentMoney += Int32.Parse(WagerComboBox.SelectedItem.ToString());
+                }
+                else
+                {
+                    currentMoney -= Int32.Parse(WagerComboBox.SelectedItem.ToString());
+                }
+            }
+
+            MoneyBox.Text = currentMoney.ToString();
             CountBox.Text = total.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            XucXac1.Image = num[0];
-            XucXac2.Image = num[0];
-            XucXac3.Image = num[0];
+            XucXac1.Image = Properties.Resources.ResourceManager.GetObject("XX01") as Image;
+            XucXac2.Image = Properties.Resources.ResourceManager.GetObject("XX01") as Image;
+            XucXac3.Image = Properties.Resources.ResourceManager.GetObject("XX01") as Image;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Bạn muốn thoát?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 e.Cancel = true;
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
