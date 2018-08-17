@@ -18,36 +18,31 @@ namespace DrawImage
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            Image img = Properties.Resources.SomeImage;
-            int boundWidth = img.Width - 200;
-            int boundHeight = img.Height - 200;
+            string path = Application.StartupPath;
+            Image img = Image.FromFile(path + @"\Picture.png");
+            Image img2 = Image.FromFile(path + @"\Picture.png");
+            img2.RotateFlip(RotateFlipType.Rotate180FlipX); // Nếu chuyển góc khác thì dò trong RotateFlipType
+            int resizeNumber = 200; // 200 là số để resize nhỏ hình
+            int imgWidth = img.Width - resizeNumber; 
+            int imgHeight = img.Height - resizeNumber; 
 
-            PictureBox picBox2 = new PictureBox();
-            picBox2.SetBounds(0, 0,boundWidth, boundHeight);
-            picBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            picBox2.Image = img;
+            e.Graphics.DrawImage(img, 0f, 0f, imgWidth, imgHeight);
+            e.Graphics.DrawImage(img2, 0f, imgHeight + 10, imgWidth, imgHeight); // Số 10 là khoảng cách trên dưới giữa 2 hình
+            
+            Font font = new Font("Arial", 50);
+            Brush brush = new SolidBrush(Color.Red);
 
-            Image img2 = Properties.Resources.SomeImage;
-
-            PictureBox picBox = new PictureBox();
-            picBox.SetBounds(0, boundHeight + 10, boundWidth, boundHeight);
-            picBox.SizeMode = PictureBoxSizeMode.Zoom;
-            img2.RotateFlip(RotateFlipType.Rotate180FlipX);
-            picBox.Image = img2;
-
-            RotateLabel label = new RotateLabel();
-            label.Angle = 90;
-            label.Text = "Hello";
-            label.VerticalFont = new Font("Arial", 50, FontStyle.Bold);
-            label.Brush = new HatchBrush(HatchStyle.DarkHorizontal, Color.Red, Color.Bisque);
-            label.Location = new Point(boundWidth + 100, 0);
-            label.Size = new Size(200, 400);
-
-            Controls.Add(picBox);
-            Controls.Add(picBox2);
-            Controls.Add(label);
+            int rectFWidth = ClientRectangle.Width - imgWidth + 10; // Số 10 là khoảng cách giữa 2 hình với chữ
+            int rectFHeight = ClientRectangle.Height;
+            RectangleF rectF = new RectangleF(new PointF(imgWidth + 10, 0f), new SizeF(rectFWidth, rectFHeight));
+     
+            StringFormat format = new StringFormat();
+            format.Alignment = StringAlignment.Center;
+            format.LineAlignment = StringAlignment.Center;
+            format.FormatFlags = StringFormatFlags.DirectionVertical;
+            e.Graphics.DrawString("Hello", font, brush, rectF, format);
         }
     }
 }
